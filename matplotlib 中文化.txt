@@ -1,0 +1,30 @@
+# 參考
+
+http://charlieblovett.pixnet.net/blog/post/309808972-python-matplotlib-%E7%84%A1%E6%B3%95%E9%A1%AF%E7%A4%BA%E4%B8%AD%E6%96%87
+https://www.jianshu.com/p/15b5189f85a3
+https://www.jianshu.com/p/b9a057925367
+
+
+# 步驟
+
+1. 修改 C:\Anaconda2\Lib\site-packages\matplotlib\mpl-data\matplotlibrc 檔案
+把 font.family 前的註解拿掉，改成 Microsoft JhengHei （微軟正黑體）
+
+2. 到 C:\WINDOWS\Fonts 找到 Microsoft JhengHei 的檔案，因為是 ttc 檔，去找轉換成 ttf 的工具
+https://transfonter.org/ttc-unpack
+
+3. 檔案 copy 到 C:\Anaconda2\Lib\site-packages\matplotlib\mpl-data\ttf 目錄下
+
+4. 關掉 jupyter 讓 python2 重啟，刪掉使用者資料夾下的 /.matplotlib ，然後重啟 jupyter
+
+
+# 除錯
+
+可用這段確認目前載的字型檔是什麼
+
+```
+# 試一下中文字體
+from matplotlib.font_manager import findfont, FontProperties
+print findfont(FontProperties(family=FontProperties().get_family()))
+```
+
